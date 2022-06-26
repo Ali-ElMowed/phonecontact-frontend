@@ -1,21 +1,16 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { getContacts } from "../api/contacts";
 
 const ViewContacts = () => {
     const navigate = useNavigate();
     const [contacts, setContacts] = useState([]);
 
-    const getContacts = async () => {
-        const res = await fetch("http://localhost:3000/api/contact/getContacts");
-        const data = res.json();
-        return data;
-    }
 
     useEffect(() => {
         const getData = async () => {
             const contacsFromSurvey = await getContacts();
-            setContacts(contacsFromSurvey);
-            console.log(contacsFromSurvey);
+            setContacts(contacsFromSurvey?.data?.result);
         };
         getData();
     }, []);
@@ -24,7 +19,7 @@ const ViewContacts = () => {
 
     return (
         <div className="container">
-            {contacts.map((contact) => {
+            {contacts.length > 0 ? contacts?.map((contact) => {
                 return (
                     <div
                         key={contact._id}
@@ -36,7 +31,7 @@ const ViewContacts = () => {
                         <button>Click me</button>
                     </div>
                 );
-            })}
+            }) : <h1>No Contacts Found</h1>}
         </div>
     );
 }
