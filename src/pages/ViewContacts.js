@@ -17,8 +17,12 @@ const ViewContacts = () => {
 
 
 
+
     return (
         <div className="container">
+            <button onClick={() => {
+                navigate('/add')
+            }}>Add Contact</button>
             {contacts.length > 0 ? contacts?.map((contact) => {
                 return (
                     <div
@@ -28,7 +32,7 @@ const ViewContacts = () => {
                             navigate(`${contact._id}`)
                         }}>
                         <h2>{contact.name}</h2>
-                        <button>Click me</button>
+                        <button >Delete Contact</button>
                     </div>
                 );
             }) : <h1>No Contacts Found</h1>}
