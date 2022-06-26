@@ -2,7 +2,8 @@
 // import ContactPage from './pages/ContactPage'
 import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from '../pages/login';
+import LoginPage from '../pages/Login';
+import RegisterPage from "../pages/register";
 
 function Auth() {
     const user = useSelector(state => state.user)
@@ -14,7 +15,7 @@ function Auth() {
             <Routes>
                 <Route path="/" element={user?.token || getUser?.token ? <>Logged in</> : <Navigate replace to="/login" />}></Route>
                 <Route path="/login" element={user?.token || getUser?.token ? <Navigate replace to="/" /> : <LoginPage />}></Route>
-                <Route path="/register" element={user?.token || getUser?.token ? <Navigate replace to="/" /> : <LoginPage />}></Route>
+                <Route path="/register" element={user?.token || getUser?.token ? <Navigate replace to="/" /> : <RegisterPage />}></Route>
             </Routes>
         </BrowserRouter>
     );

@@ -5,8 +5,6 @@ import { login } from "../api/auth";
 import { set } from "../app/slices/user";
 
 const LoginPage = () => {
-    const { id } = useParams();
-    const [contactContect, setContactContect] = useState([]);
 
     const [email, setEmail] = useState('test@test.com')
     const [password, setPassword] = useState('1234444444')
@@ -17,7 +15,6 @@ const LoginPage = () => {
             const res = await login(email, password);
             dispatch(set(res?.data))
             localStorage.setItem("user", JSON.stringify(res?.data))
-            console.log(res);
         } catch (error) {
             console.log(error);
         }
