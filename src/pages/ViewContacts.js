@@ -33,8 +33,8 @@ import { deleteContact, getContacts } from "../api/contacts"
             <div className="contacts-container">
                 <button onClick={() => {
                     navigate('/add')
-                }}>Add Contact</button>
-                <input placeholder='Search...' onChange={(e)=>{setSearch(e.target.value)}} value={search}/>
+                }} >Add Contact</button>
+                <input placeholder='Search...' onChange={(e)=>{setSearch(e.target.value)}} value={search} className="search"/>
 
                 {contacts.length > 0 ? search.length>0?contacts?.filter(c=>c.email?.includes(search)).map((contact) =>(
                         <div
