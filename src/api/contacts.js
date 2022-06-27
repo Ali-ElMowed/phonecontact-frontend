@@ -1,4 +1,5 @@
 import axios from 'axios'
+import ContactPage from '../pages/ContactPage';
 
 export const getContacts = async () => {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -11,6 +12,10 @@ export const addContact = async (data) => {
     return res;
 }
 
-// export const deleteContact = async (data) => {
-//     const res = await axios.delete(`http://localhost:3000/api/contact/deleteContact`)
-// }
+export const deleteContact = async (data) => {
+    const res = await axios.delete(`http://localhost:3000/api/contact/deleteContact`,{
+        method:"delete",
+        body: JSON.stringify({id: data})
+    })
+    return res;
+}
