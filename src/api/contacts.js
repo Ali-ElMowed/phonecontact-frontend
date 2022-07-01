@@ -13,9 +13,11 @@ export const addContact = async (data) => {
 }
 
 export const deleteContact = async (data) => {
-    const res = await axios.delete(`http://localhost:3000/api/contact/deleteContact`,{
-        method:"delete",
-        body: JSON.stringify({id: data})
-    })
+    const res = await axios.delete(`http://localhost:3000/api/contact/deleteContact/${data}`)
+    return res;
+}
+
+export const getContactById = async (data) => {
+    const res = await axios.get(`http://localhost:3000/api/contact/getContactById/${data}`)
     return res;
 }
