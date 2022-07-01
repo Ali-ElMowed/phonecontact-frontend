@@ -3,6 +3,7 @@
 import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AddContact from "../pages/AddContact";
+import ContactPage from "../pages/ContactPage";
 import LoginPage from '../pages/Login';
 import RegisterPage from "../pages/Register";
 import ViewContacts from "../pages/ViewContacts";
@@ -19,6 +20,7 @@ function Auth() {
                 <Route path="/add" element={user?.token || getUser?.token ? <AddContact /> : <Navigate replace to="/login" />}></Route>
                 <Route path="/login" element={user?.token || getUser?.token ? <Navigate replace to="/" /> : <LoginPage />}></Route>
                 <Route path="/register" element={user?.token || getUser?.token ? <Navigate replace to="/" /> : <RegisterPage />}></Route>
+                <Route path="/contact/:id" element={<ContactPage />} />
             </Routes>
         </BrowserRouter>
     );
