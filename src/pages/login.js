@@ -24,10 +24,10 @@ const LoginPage = () => {
 
 
     return (
-        <div>
+        <div className="login">
             <input placeholder="Email" type="email" onChange={(e) => { setEmail(e.target.value) }} value={email} />
             <input placeholder="Password" type="password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
-            <button onClick={handleLogin}>login</button>
+            <button onClick={handleLogin} className="login-btn">login</button>
         </div>
     )
 

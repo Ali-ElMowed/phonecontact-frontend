@@ -75,3 +75,20 @@
 .search{
   padding: 20px;
 }
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
+  margin: 200px;
+
+}
+.login input ,.login-btn{
+  padding: 20px;
+  width: 400px;
+  align-self: center;
+}
+.login-btn{
+  width: 100px;
+}
